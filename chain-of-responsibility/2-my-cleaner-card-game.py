@@ -13,7 +13,7 @@ class CreatureModifier:
         self.creature = creature
         self.next_modifier = None
 
-    def add_modifier(self, modifier:):
+    def add_modifier(self, modifier):
         if self.next_modifier:
             self.next_modifier.add_modifier(modifier)
         else:
