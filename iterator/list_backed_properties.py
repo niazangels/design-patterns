@@ -1,4 +1,6 @@
 class Creature:
+    """This will be hard to maintain as we add more properties"""
+
     def __init__(self):
         self.strength = 10
         self.agility = 10
@@ -17,7 +19,13 @@ class Creature:
         return sum(self.strength, self.agility, self.intelligence) / 3
 
 
-class Creature2ListBacked:
+class Creature2:
+    """List Backed
+
+    There's a whole lot of bloat here that can be abstracted away
+    with a nice metaclass
+    """
+
     _strength = 0
     _agility = 1
     _intelligence = 2
@@ -97,6 +105,7 @@ class Creature3NamedTuple:
     def strength(self):
         return self.stats.strength
 
+    # This setter won't work - its immutable
     @strength.setter
     def strength(self, x):
         self.stats.strength = x
@@ -109,5 +118,5 @@ class Creature3NamedTuple:
 if __name__ == "__main__":
     pikachu = Creature3NamedTuple()
     print(pikachu.strength)
-    pikachu.strength = 100
-    print(pikachu.strength)
+    # pikachu.strength = 100
+    # print(pikachu.strength)
